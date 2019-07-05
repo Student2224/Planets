@@ -262,7 +262,7 @@ PrefabInstance:
     - target: {fileID: 3870912790507106893, guid: 51db4ea15c2749c409b4bdac301d68bc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3870912790507106891, guid: 51db4ea15c2749c409b4bdac301d68bc,
         type: 3}
@@ -368,11 +368,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 635806517795300223, guid: ad785376258716545a5b98e029ef96ec,
-        type: 3}
-      propertyPath: m_Name
-      value: Rocket
-      objectReference: {fileID: 0}
     - target: {fileID: 635806517795300193, guid: ad785376258716545a5b98e029ef96ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -465,7 +460,7 @@ PrefabInstance:
     - target: {fileID: 3870912790507106893, guid: 51db4ea15c2749c409b4bdac301d68bc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3870912790507106891, guid: 51db4ea15c2749c409b4bdac301d68bc,
         type: 3}
