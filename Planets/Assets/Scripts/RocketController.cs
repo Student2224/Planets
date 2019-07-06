@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class RocketController : MonoBehaviour
 {
-    private Gravity gravity;
-    void Awake()
-    {
-        gravity = gameObject.GetComponent<Gravity>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Vector3 mousePos = (Camera.main.ScreenToWorldPoint(Input.mousePosition));
-        var distance = Vector3.Distance(transform.position, mousePos);
-        float speedx = -(transform.position.x - mousePos.x);
-        float speedY = -(transform.position.y - mousePos.y);
-        transform.up = new Vector2(speedx, speedY);
+        Vector2 direction = mousePos - transform.position;
+        transform.up = direction;
     }
     void OnMouseDown()
     {
