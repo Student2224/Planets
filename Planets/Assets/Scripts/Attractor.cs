@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attractor : MonoBehaviour
 {
-    const float G = 6.674f;
+    public const float G = 6.674f / 10000;
      
     public static List<Attractor> Attractors = new List<Attractor>();
 

@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class StartingValues : MonoBehaviour
 {
+    public Rigidbody2D rb2d;
+
+    public GameObject Sun;
+
     public Vector2 ForceVector;
     public float ForceMagnitude;
 
-    public Rigidbody2D rb2d;
+
 
     //private void Awake()
     //{
@@ -16,6 +20,7 @@ public class StartingValues : MonoBehaviour
 
     private void Start()
     {
+        ForceMagnitude = GetComponent<Rigidbody2D>().mass * 50 * Mathf.Sqrt(Attractor.G * Sun.GetComponent<Rigidbody2D>().mass / Vector2.Distance(Sun.transform.position, transform.position));
         rb2d.AddForce(ForceVector.normalized * ForceMagnitude);
     }
 }
