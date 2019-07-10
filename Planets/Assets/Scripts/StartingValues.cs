@@ -8,19 +8,22 @@ public class StartingValues : MonoBehaviour
 
     public GameObject Sun;
 
-    public Vector2 ForceVector;
-    public float ForceMagnitude;
+    private float ForceMagnitude;
+    private Rigidbody2D SunRb2d;
+    private Vector2 forceVector;
 
-
-
-    //private void Awake()
-    //{
-    //    rb2d = gameObject.GetComponent<Rigidbody2D>();
-    //}
+    private void Awake()
+    {
+        rb2d = gameObject.GetComponent<Rigidbody2D>();
+        SunRb2d = Sun.GetComponent<Rigidbody2D>();
+    }
 
     private void Start()
     {
-        ForceMagnitude = GetComponent<Rigidbody2D>().mass * 50 * Mathf.Sqrt(Attractor.G * Sun.GetComponent<Rigidbody2D>().mass / Vector2.Distance(Sun.transform.position, transform.position));
-        rb2d.AddForce(ForceVector.normalized * ForceMagnitude);
+        forceVector = Sun.transform.position - transform.position;
+        forceVector = Vector2Extension.Rotate(forceVector, 90);
+
+        ForceMagnitude = rb2d.mass * 50 * Mathf.Sqrt((Attractor.G * SunRb2d.mass) / Vector2.Distance(Sun.transform.position, transform.position));
+        rb2d.AddForce(forceVector.normalized * ForceMagnitude);
     }
 }

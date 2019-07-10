@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class RocketController : MonoBehaviour
 {
+    [SerializeField]
+    private Rigidbody2D rb2d;
+    [SerializeField]
+    private float thrustValue;
+
     void Update()
     {
         Vector3 mousePos = (Camera.main.ScreenToWorldPoint(Input.mousePosition));
         Vector2 direction = mousePos - transform.position;
         transform.up = direction;
-    }
-    void OnMouseDown()
-    {
-        //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //var distance = Vector3.Distance(transform.position, mousePos);
-        //float speedX = -(transform.position.x - mousePos.x) / distance;
-        //float speedY = -(transform.position.y - mousePos.y) / distance;
-        //gravity.AddSpeed(new Vector2(speedX, speedY));
-        
+
+        if (Input.GetMouseButton(0))
+        {
+            rb2d.AddForce(transform.up * thrustValue);
+        }
     }
 }

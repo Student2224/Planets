@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4913242690822451258}
   m_Layer: 0
   m_Name: Planet
-  m_TagString: Untagged
+  m_TagString: Planet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,6 +145,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb116be6638d5074291691d931a46f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForceVector: {x: 1, y: 0}
-  ForceMagnitude: 0
   rb2d: {fileID: -4450773330231934056}
+  Sun: {fileID: 0}
