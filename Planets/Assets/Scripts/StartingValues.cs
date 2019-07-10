@@ -8,7 +8,6 @@ public class StartingValues : MonoBehaviour
 
     public GameObject Sun;
 
-    private float ForceMagnitude;
     private Rigidbody2D SunRb2d;
     private Vector2 forceVector;
 
@@ -23,7 +22,6 @@ public class StartingValues : MonoBehaviour
         forceVector = Sun.transform.position - transform.position;
         forceVector = Vector2Extension.Rotate(forceVector, 90);
 
-        ForceMagnitude = rb2d.mass * 50 * Mathf.Sqrt((Attractor.G * SunRb2d.mass) / Vector2.Distance(Sun.transform.position, transform.position));
-        rb2d.AddForce(forceVector.normalized * ForceMagnitude);
+        rb2d.velocity += forceVector.normalized * Mathf.Sqrt(Attractor.G * SunRb2d.mass / Vector2.Distance(Sun.transform.position, transform.position));
     }
 }
