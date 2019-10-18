@@ -68,11 +68,11 @@ namespace Particles
 
             foreach (var item in particles)
             {
-                item.f(particles);
+                item.MoveProcessor(particles);
             }
             for (int i = 0; i < particles.Count; i++)
             {
-                particles[i].change_position();
+                particles[i].Change_position();
                 try
                 {
                     e.Graphics.DrawEllipse(new Pen(Color.FromArgb(255, 100, 200, 255), 10), 
@@ -90,7 +90,7 @@ namespace Particles
         private void timer1_Tick(object sender, EventArgs e)
         {
             if(!pause)
-            Refresh();
+                Refresh();
         }
 
         private void Form1_Click(object sender, EventArgs e)

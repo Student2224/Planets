@@ -9,25 +9,24 @@ namespace Particles
 {
     class Particle
     {
-        public Vector position,speed;
+        public Vector position;
+        public Vector speed;
         public Vector Rspeed,RspeedPrev;
-        public double 
-            mass,
-            radius ,
-            k,
-            temperature=10,
-            time=0;
+        public double mass;
+        public double radius;
+        public double k;//wtf
+        public double temperature = 10;
+        public double time =0;
 
-        double 
-            speed_cond = 0.01, 
-            temperature_cond = 0.1;
+        double speed_cond = 0.01;       //?
+        double temperature_cond = 0.1;  //?
 
 
 
-        public delegate void func(List<Particle> particles) ;
-        public func f;
+        public delegate void move_delegate(List<Particle> particles) ;
+        public move_delegate MoveProcessor;
         
-        static double eps = 0.001,G=1000;
+        static readonly  double eps = 0.001,G=1000;
         public Particle(Vector pos,Vector s,
             double m,double r,double koef,double t)
         {
@@ -38,12 +37,12 @@ namespace Particles
             speed = s;
             k = koef;
             temperature = t;
-            f = LennardGons;
+            MoveProcessor = LennardGons;
         }
 
 
  
-        public void LennardGons(List<Particle> particles)
+        public void LennardGons(List<Particle> particles) //fix all
         {
             Vector F;
             double
@@ -85,7 +84,7 @@ namespace Particles
             }
         }
 
-        public void closeF(List<Particle> particles)
+        public void CloseF(List<Particle> particles)
         {
             Vector F;
             foreach (var item in particles)
@@ -128,7 +127,7 @@ namespace Particles
         }
     
 
-        public void change_position()
+        public void Change_position()
         {
             position += speed + Rspeed;
             if (temperature>1)
