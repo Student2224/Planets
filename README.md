@@ -10,7 +10,10 @@ Download Unity Hub https://unity3d.com/get-unity/download
 
 <h3>Code conventions </h3>
   All that may be private SHOULD be private. <br>
-  All names must be self describing
+  All names must be self describing <br>
+  
+  Function must do ONE thing. If function longer than 1-2 screens SPLIT IT
+  
   
   <li>Functions naming:  CamelCase();</li>
   <li>Fields naming:  int lowCamelCase;</li>
