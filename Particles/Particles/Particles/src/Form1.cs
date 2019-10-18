@@ -16,24 +16,25 @@ namespace Particles
         protected bool pause = false;
         double scale = 1;
 
-        List<Particle> particles = new List<Particle>();
+        //List<Particle> level.particles = new List<Particle>();
 
+        Level level = new Level(new List<Particle>());
 
         void Properties()
         {
             try
             {
                 int n = int.Parse(N.Text);
-                r.Text = $"{particles[n].radius}";
-                sy.Text = $"{particles[n].speed.Y}";
-                sx.Text = $"{particles[n].speed.X}";
-                m.Text = $"{particles[n].mass}";
-                koef.Text = $"{particles[n].k}";
-                s.Text = $"{particles[n].speed.Length}";
-                rs.Text = $"{particles[n].Rspeed.Length}";
-                RsX.Text = $"{particles[n].Rspeed.X}";
-                RsY.Text = $"{particles[n].Rspeed.Y}";
-                t.Text = $"{particles[n].temperature}";  
+                r.Text = $"{level.particles[n].radius}";
+                sy.Text = $"{level.particles[n].speed.Y}";
+                sx.Text = $"{level.particles[n].speed.X}";
+                m.Text = $"{level.particles[n].mass}";
+                koef.Text = $"{level.particles[n].k}";
+                s.Text = $"{level.particles[n].speed.Length}";
+                rs.Text = $"{level.particles[n].Rspeed.Length}";
+                RsX.Text = $"{level.particles[n].Rspeed.X}";
+                RsY.Text = $"{level.particles[n].Rspeed.Y}";
+                t.Text = $"{level.particles[n].temperature}";  
             }
             catch (Exception)
             {
@@ -61,8 +62,8 @@ namespace Particles
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            const string path = "data/test1.lvl";
-            ParticlesFactory.Parse("");
+           // const string path = "data/test1.lvl";
+            List<Particle> new_particles = ParticlesFactory.Parse("");
             Program.Debug("load");
         }
 
@@ -70,21 +71,17 @@ namespace Particles
         {
             Properties();
 
-            foreach (var item in particles)
+            level.AplyForce();
+            for (int i = 0; i < level.particles.Count; i++)
             {
-                item.MoveProcessor(particles);
-            }
-            for (int i = 0; i < particles.Count; i++)
-            {
-                particles[i].Change_position();
                 try
                 {
                     e.Graphics.DrawEllipse(new Pen(Color.FromArgb(255, 100, 200, 255), 10), 
-                        (int)(particles[i].position.X / scale), (int)(particles[i].position.Y / scale), 2, 2);
+                        (int)(level.particles[i].position.X / scale), (int)(level.particles[i].position.Y / scale), 2, 2);
                 }
                 catch (Exception)
                 {
-                    particles.Remove(particles[i]);
+                    level.particles.Remove(level.particles[i]);
                 }           
             }
         }
@@ -101,7 +98,7 @@ namespace Particles
         {
             try
             {
-                particles.Add(
+                level.particles.Add(
                              new Particle(new Vector(Cursor.Position.X * scale, Cursor.Position.Y * scale),
                              new Vector(Double.Parse(speedX.Text), Double.Parse(speedY.Text)),
                              Double.Parse(mass.Text), Double.Parse(radius.Text), 
@@ -123,7 +120,7 @@ namespace Particles
         private void Clear_Click(object sender, EventArgs e)
         {
              CreateGraphics().Clear(Color.White);
-            particles.Clear();
+            level.particles.Clear();
         }
 
         private void properties_Click(object sender, EventArgs e)

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Windows;
 
 namespace Particles
-{
+{   
+    [Serializable]
     class Particle
     {
         public Vector position;
@@ -21,11 +22,14 @@ namespace Particles
 
 
         public delegate void move_delegate(List<Particle> particles);
+        [NonSerialized]
         public move_delegate MoveProcessor;
 
         static readonly double eps = 0.001, G = 1000;
-        public Particle(Vector pos, Vector s,
-            double m, double r, double koef, double t)
+
+
+        private void Init(Vector pos, Vector s,
+            double m, double r, double koef, double t ) 
         {
             Rspeed = new Vector(0, 0);
             position = pos;
@@ -35,6 +39,15 @@ namespace Particles
             k = koef;
             temperature = t;
             MoveProcessor = LennardGons;
+        }
+        public Particle()
+        {
+            Init(new Vector(0, 0), new Vector(0, 0), 100, 100, 1, 1);
+        }
+        public Particle(Vector pos, Vector s,
+            double m, double r, double koef, double t)
+        {
+            Init(pos, s, m, r, koef, t);
         }
 
 
