@@ -25,10 +25,10 @@ namespace Particles
         [NonSerialized]
         public move_delegate MoveProcessor;
 
-        static readonly double eps = 0.001, G = 1000;
+        static protected double eps = 0.001, G = 1000;
 
 
-        private void Init(Vector pos, Vector s,
+        protected void Init(Vector pos, Vector s,
             double m, double r, double koef, double t, move_delegate move) 
         {
             Rspeed = new Vector(0, 0);

@@ -28,7 +28,12 @@ namespace Particles
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            window = new Form1();
+            List<Particle> particles = new List<Particle>();
+            Level level = new Level(particles);
+            //  string str = JsonConvert.SerializeObject(level);
+            window = new Form1(level);
+
+            //window.level = level;
             Application.Run(window);
         }
     }
