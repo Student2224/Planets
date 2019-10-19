@@ -29,7 +29,7 @@ namespace Particles
 
 
         private void Init(Vector pos, Vector s,
-            double m, double r, double koef, double t ) 
+            double m, double r, double koef, double t, move_delegate move) 
         {
             Rspeed = new Vector(0, 0);
             position = pos;
@@ -38,16 +38,16 @@ namespace Particles
             speed = s;
             k = koef;
             temperature = t;
-            MoveProcessor = LennardGons;
+            MoveProcessor = move;
         }
         public Particle()
         {
-            Init(new Vector(0, 0), new Vector(0, 0), 100, 100, 1, 1);
+            Init(new Vector(0, 0), new Vector(0, 0), 100, 100, 1, 1, LennardGons);
         }
         public Particle(Vector pos, Vector s,
             double m, double r, double koef, double t)
         {
-            Init(pos, s, m, r, koef, t);
+            Init(pos, s, m, r, koef, t, LennardGons);
         }
 
 
