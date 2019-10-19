@@ -100,18 +100,6 @@ namespace Particles
         {
             try
             {
-                SpringParticle p1, p2, p3;
-                p1 = new SpringParticle(new Vector(300, 600), new Vector(0, 0), 100, 100, 1, 1, new List<Particle>());
-                p2 = new SpringParticle(new Vector(350, 600), new Vector(0, 0), 100, 100, 1, 1, new List<Particle>());
-                p3 = new SpringParticle(new Vector(300, 650), new Vector(0, 0), 100, 100, 1, 1, new List<Particle>());
-
-                p1.AddSpring(p2);
-                p2.AddSpring(p3);
-
-                List<Particle> particles = new List<Particle>();
-                level.particles.Add(p1);
-                level.particles.Add(p2);
-                level.particles.Add(p3);
 
                 
 

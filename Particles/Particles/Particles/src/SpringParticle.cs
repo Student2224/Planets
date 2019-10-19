@@ -17,7 +17,7 @@ namespace Particles
         void Init(Vector pos, Vector s, //FIXUP
                double m, double r, double koef, double t, move_delegate move, List<Particle> _springs)
         {
-            Init(pos, s, 10, 100, 1, 1, SpringMove);
+            Init(pos, s, m, r, koef, t, SpringMove);
             springs = _springs;
         }
 
@@ -45,12 +45,18 @@ namespace Particles
                 foreach (var item in particles)
                 {
                     double distance = (position - item.position).Length;
+                    if (distance < eps)
+                        continue;
                     F = (item.position - position);
-                    F.Normalize();
                     F *= G * Math.Pow(distance, -2) * item.mass / mass;//Гравитация
 
                     double r = (position - item.position).Length;
 
+                    if (distance < radius)
+                    {
+                        //Отталкивание
+                        F = -F * 4 * temperature;
+                    }
                 }
 
                 foreach (var spring in springs)
@@ -58,9 +64,12 @@ namespace Particles
                     Vector direction = spring.position - position;
                     double spring_len = direction.Length;
 
-                    F += direction * (spring_length - spring_len) * Math.Abs(spring_length - spring_len);
+                    Vector deltaSpring = -direction * (spring_length - spring_len);
+                    F += deltaSpring;
 
                 }
+
+                speed += F / mass;
             }
         }
     }
