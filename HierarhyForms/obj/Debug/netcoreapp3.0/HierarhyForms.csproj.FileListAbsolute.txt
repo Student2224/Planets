@@ -1,0 +1,11 @@
+C:\Users\sader\source\repos\Hierarhy\HierarhyForms\bin\Debug\netcoreapp3.0\HierarhyForms.exe
+C:\Users\sader\source\repos\Hierarhy\HierarhyForms\bin\Debug\netcoreapp3.0\HierarhyForms.deps.json
+C:\Users\sader\source\repos\Hierarhy\HierarhyForms\bin\Debug\netcoreapp3.0\HierarhyForms.runtimeconfig.json
+C:\Users\sader\source\repos\Hierarhy\HierarhyForms\bin\Debug\netcoreapp3.0\HierarhyForms.runtimeconfig.dev.json
+C:\Users\sader\source\repos\Hierarhy\HierarhyForms\bin\Debug\netcoreapp3.0\HierarhyForms.dll
+C:\Users\sader\source\repos\Hierarhy\HierarhyForms\bin\Debug\netcoreapp3.0\HierarhyForms.pdb
+C:\Users\sader\source\repos\Hierarhy\HierarhyForms\obj\Debug\netcoreapp3.0\HierarhyForms.csprojAssemblyReference.cache
+C:\Users\sader\source\repos\Hierarhy\HierarhyForms\obj\Debug\netcoreapp3.0\HierarhyForms.AssemblyInfoInputs.cache
+C:\Users\sader\source\repos\Hierarhy\HierarhyForms\obj\Debug\netcoreapp3.0\HierarhyForms.AssemblyInfo.cs
+C:\Users\sader\source\repos\Hierarhy\HierarhyForms\obj\Debug\netcoreapp3.0\HierarhyForms.dll
+C:\Users\sader\source\repos\Hierarhy\HierarhyForms\obj\Debug\netcoreapp3.0\HierarhyForms.pdb
