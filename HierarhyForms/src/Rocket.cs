@@ -4,12 +4,19 @@ using System.Text;
 
 namespace Rocket
 {
-    class Rocket : HierarhyForms.HeavenBody
+    public class Rocket : HierarhyForms.HeavenBody
     {
         double rotationSpeed;
         double thrustPower;
-        Weapon weapon;
-        protected int health //?
+        protected Weapon weapon;
+        protected int health; //?
+        protected void Init(Weapon weapon, int health, double thrustPower, double rotationSpeed)
+        {
+            this.weapon = weapon;
+            this.health = health;
+            this.thrustPower = thrustPower;
+            this.rotationSpeed = rotationSpeed;
+        }
         
     }
 }
