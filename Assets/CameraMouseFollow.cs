@@ -16,7 +16,7 @@ public class CameraMouseFollow : MonoBehaviour
     void Update()
     {
         Vector3 mousePos = Input.mousePosition;
-        transform.position = (mousePos - startPosition - new Vector3(Screen.width,Screen.height)*0.5f)*0.005f ;
+        transform.position = (mousePos - startPosition - new Vector3(Screen.width,Screen.height)*0.5f)*0.005f;
         this.transform.position   = new Vector3(transform.position.x,transform.position.y,startPosition.z);
     }
 }

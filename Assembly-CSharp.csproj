@@ -64,7 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CameraMouseFollow.cs" />
-    <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\CameraPlayerFolow.cs" />
+    <Compile Include="Assets\EnemyKontroller.cs" />
+    <Compile Include="Assets\NPC.cs" />
+    <Compile Include="Assets\PlayerContoller.cs" />
     <Compile Include="Assets\SkyBody.cs" />
     <Compile Include="Assets\SpaceShip.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
